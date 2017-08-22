@@ -1,0 +1,3 @@
+function getGField(X)
+
+end

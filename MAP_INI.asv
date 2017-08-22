@@ -1,0 +1,26 @@
+
+global Robots
+global MAP_DATA
+clear MAP_DATA
+
+MAP_DATA.MAP_H=figure(100);
+clf
+hold on;grid off;
+xlabel('metres');
+ylabel('metres');
+global PAR;
+if (isempty(PAR))
+    fprintf('PAR is not initialized/f');
+    return;
+end
+axis equal
+axis([-PAR.MAP_X/2,PAR.MAP_X/2,-PAR.MAP_Y/2,PAR.MAP_Y/2,0,2]);
+set(gca,'Color',[0.95 0.95 0.95]);
+
+
+MAP_DATA.Robots=struct('h',{});
+for i=1:size(Robots,1)
+    MAP_DATA.Robots(1).h=plot(Robots(1).X(1),Robots(1).X(2),'B.','MarkerSize',15);
+   
+    
+end
