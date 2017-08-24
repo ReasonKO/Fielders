@@ -1,4 +1,4 @@
-function plotDataSet(h,x,varargin)
+function plotDataSetlogy(h,x,varargin)
 %if nargin<2
 global Modul
 global plotData_data
@@ -39,29 +39,29 @@ else
         x=0;
     end
     if length(varData)==0
-        h=plot(x,y);
+        h=semilogy(x,y);
     end
-    if length(varData)==1
-        h=plot(x,y,varData{1});
-    end
-    if length(varData)==2
-        h=plot(x,y,varData{1},varData{2});
-    end
-    if length(varData)==3
-        h=plot(x,y,varData{1},varData{2},varData{3});
-    end
-    if length(varData)==4
-        h=plot(x,y,varData{1},varData{2},varData{3},varData{4});
-    end
-    if length(varData)==5
-        h=plot(x,y,varData{1},varData{2},varData{3},varData{4},varData{5});
-    end
-    if length(varData)==6
-        h=plot(x,y,varData{1},varData{2},varData{3},varData{4},varData{5},varData{6});
-    end
-    if length(varData)>6
-        error('MAX LENGTH');
-    end    
+%     if length(varData)==1
+%         h=plot(x,y,varData{1});
+%     end
+%     if length(varData)==2
+%         h=plot(x,y,varData{1},varData{2});
+%     end
+%     if length(varData)==3
+%         h=plot(x,y,varData{1},varData{2},varData{3});
+%     end
+%     if length(varData)==4
+%         h=plot(x,y,varData{1},varData{2},varData{3},varData{4});
+%     end
+%     if length(varData)==5
+%         h=plot(x,y,varData{1},varData{2},varData{3},varData{4},varData{5});
+%     end
+%     if length(varData)==6
+%         h=plot(x,y,varData{1},varData{2},varData{3},varData{4},varData{5},varData{6});
+%     end
+%     if length(varData)>6
+%         error('MAX LENGTH');
+%     end    
     title(hname);
     plotData_data=setfield(plotData_data,hname,h);
 end

@@ -1,4 +1,4 @@
-global MAP_DATA PAR 
+global MAP_DATA PAR Modul
 global Robots;
 if (isfield(MAP_DATA,'MAP_H') && ishandle(MAP_DATA.MAP_H) && isequal('on',get(MAP_DATA.MAP_H,'Visible')))
 %% BEGIN 
@@ -14,6 +14,9 @@ for MAP_i=1:length(Robots)
             end
         end           
 end
-
+drawnow
+if isfield(Modul,'T')
+    set(Modul.Minfo.Htime,'String',Modul.T);
+end
 drawnow
 end

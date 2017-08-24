@@ -2,7 +2,7 @@ global Robots
 global exp1_data
 
 global alg_par 
-robot=Robots(n);
+robot=Robots(20);
 
 dx=alg_par.sr0;
 dy=alg_par.sr0y;

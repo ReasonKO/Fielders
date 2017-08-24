@@ -2,6 +2,9 @@
 
 global Robots
 global alg_par
+
+alg_par.rule_step=1;
+
 n=length(Robots);
 sum_nearest_theta=zeros(1,n);
 sum_nearest_d=zeros(n,2);
@@ -25,7 +28,7 @@ for i=1:n
         %% step 7) Distence to G
         ln=(sqrt((Robots(i).p(1)-Robots(i).G.X).^2+(Robots(i).p(2)-Robots(i).G.Y).^2));
         %% Step g8
-        if min(min(ln))<alg_par.rtr
+        if min(min(ln))>alg_par.rtr
             %g8 a)
             B=ln<alg_par.rl0+alg_par.rtr;
             %g8 b)
@@ -48,16 +51,35 @@ end
 
 
 
-global addplot_data
-figure(300)
-hold on
-if isempty(addplot_data)
-    subplot(3,1,1);
+    if ~ishandle(300) 
+        figure(300)
+        subplot(3,1,1);
+        subplot(3,1,2);
+        subplot(3,1,3);
+        hold on
+    
+    end
     plotDataSet('Theta',Robots(n).theta);
-    subplot(3,1,2);
     plotDataSet('Di1',Robots(n).d(1)+Robots(n).p(1));
-    subplot(3,1,3);
     plotDataSet('Di2',Robots(n).d(2)+Robots(n).p(2));
-end
+    %subplot(1,1,1);
+    
+    
+    if ~ishandle(301) 
+        figure(301)
+        hold all
+    end
+    for i=1:n-1
+        ln=(sqrt((Robots(n).p(1)+Robots(n).d(1)-Robots(i).G.X).^2+(Robots(n).p(2)+Robots(n).d(2)-Robots(i).G.Y).^2));
+        plotDataSetlogy(['LNtoD_',int2str(i)],min(min(ln)));
+    end
+    if ~ishandle(302) 
+        figure(302)
+        hold all
+    end
+    for i=1:n-1
+        plotDataSetlogy(['theta_',int2str(i)],Robots(i).theta);
+    end
+
 
 

@@ -2,6 +2,8 @@
 
 global Robots
 global alg_par
+
+alg_par.rule_step=2;
 n=length(Robots);
 
 
@@ -14,7 +16,7 @@ for i=1:n
         Robots(i).G.oI=Robots(i).G.oI&Robots(i).G.I;
         for j=1:n
             if i~=j
-                B=sqrt((Robots(j).p(1)-Robots(i).G.X).^2+(Robots(j).p(2)-Robots(i).G.Y).^2)<alg_par.rtr;
+                B=sqrt((Robots(j).p(1)-Robots(i).G.X).^2+(Robots(j).p(2)-Robots(i).G.Y).^2)<alg_par.rtr;             
                 Robots(i).G.oI=Robots(i).G.oI&not(B);
             end
         end

@@ -8,6 +8,8 @@ PAR.MAP_Y=200;
 
 
 global alg_par
+alg_par.ExpName='exp2';
+
 alg_par.r0=20; %Зона действия датчика
 alg_par.rl0=alg_par.r0-1; %Зона действия датчика
 alg_par.rc=50; %Зона комуникации
@@ -21,12 +23,13 @@ alg_par.sr0y=alg_par.sr0*sqrt(3)/2;
 
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
-for i=1:100
+n=100;
+for i=1:n
     %randomize
-    if i~=11
+
         Robots(i).Active=1;
-    end
-    Robots(i).p=[rand(1)*2-1,rand(1)*2-1]*80;
+
+    Robots(i).p=[rand(1)*2-1,rand(1)*2-1]*10;
     ang=rand(1)*2*pi;
     r=rand(1)*alg_par.r0;
     Robots(i).d=r*[cos(ang),sin(ang)];
@@ -47,12 +50,13 @@ for i=1:100
 end
 
 %% POLE INI
+
 MAP_INI
-set(MAP_DATA.Robots(1).h,'Color','R');
+set(MAP_DATA.Robots(n).h,'Color','R');
 
 [X,Y]=meshgrid(-100:1:100,-100:1:100);
 in=inField(X,Y,0);
-hmap=imagesc(-100:1:100,-100:1:100,1-in/10,'AlphaData',0.98);
+hmap=imagesc(-100:1:100,-100:1:100,1-in/10,'AlphaData',0.3);
 temp=0:pi/30:(2*pi);
 plot(5+(80+alg_par.rl0+alg_par.rtr/2)*sin(temp),10+(80+alg_par.rl0+alg_par.rtr/2)*cos(temp),'B')
 colormap([176/255,196/255,222/255;1,1,1]);
@@ -71,23 +75,7 @@ Modul.T=0;
 Modul.Tend=100;
 Modul.dt=0.1;
 
-while Modul.T<Modul.Tend
-    Modul.T=Modul.T+Modul.dt*20;
-    
-    for k=1:10
-        MAP
-        dynamic
-    end
-    rule    
-    addVisual
-    pause(0.1)
-    
-    for k=1:10
-        MAP
-        dynamic
-    end
-    rule2    
-    addVisual
-    pause(0.1)
-    iso
-end
+Modul.SaveExp=1;
+Modul.save_freq=1; 
+
+MODUL
