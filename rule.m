@@ -49,37 +49,36 @@ for i=1:n
 end
 
 
+global alg_graph
+if ~ishandle(300) 
+    figure(300)
+    alg_graph.f300.s1=subplot(3,1,1);
+    alg_graph.f300.s2=subplot(3,1,2);
+    alg_graph.f300.s3=subplot(3,1,3);
+    hold on
 
+end
+plotDataSet('Theta',Robots(n).theta,'Parent',alg_graph.f300.s1);
+plotDataSet('Di1',Robots(n).d(1)+Robots(n).p(1),'Parent',alg_graph.f300.s2);
+plotDataSet('Di2',Robots(n).d(2)+Robots(n).p(2),'Parent',alg_graph.f300.s3);
 
-    if ~ishandle(300) 
-        figure(300)
-        subplot(3,1,1);
-        subplot(3,1,2);
-        subplot(3,1,3);
-        hold on
-    
-    end
-    plotDataSet('Theta',Robots(n).theta);
-    plotDataSet('Di1',Robots(n).d(1)+Robots(n).p(1));
-    plotDataSet('Di2',Robots(n).d(2)+Robots(n).p(2));
-    %subplot(1,1,1);
-    
-    
-    if ~ishandle(301) 
-        figure(301)
-        hold all
-    end
-    for i=1:n-1
-        ln=(sqrt((Robots(n).p(1)+Robots(n).d(1)-Robots(i).G.X).^2+(Robots(n).p(2)+Robots(n).d(2)-Robots(i).G.Y).^2));
-        plotDataSetlogy(['LNtoD_',int2str(i)],min(min(ln)));
-    end
-    if ~ishandle(302) 
-        figure(302)
-        hold all
-    end
-    for i=1:n-1
-        plotDataSetlogy(['theta_',int2str(i)],Robots(i).theta);
-    end
+if ~ishandle(301) 
+    figure(301)
+    %axes('YScale','log')
+    hold all        
+end
+for i=1:n-1
+    ln=(sqrt((Robots(n).p(1)+Robots(n).d(1)-Robots(i).G.X).^2+(Robots(n).p(2)+Robots(n).d(2)-Robots(i).G.Y).^2));
+    plotDataSetlogy(['LNtoD_',int2str(i)],min(min(ln)));
+end
+if ~ishandle(302) 
+    figure(302)
+    %axes('YScale','log')
+    hold all
+end
+for i=1:n-1
+    plotDataSetlogy(['theta_',int2str(i)],Robots(i).theta);        
+end
 
 
 
