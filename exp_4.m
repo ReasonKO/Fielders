@@ -12,22 +12,24 @@ alg_par.ExpName='exp4_star';
 
 alg_par.r0=10; %Зона действия датчика
 alg_par.rl0=alg_par.r0-1; %Зона действия датчика
+alg_par.rtr=1; %Зона необходимого сближения с сеткой
 alg_par.rc=alg_par.r0*2; %Зона комуникации
 alg_par.rs=alg_par.r0*2; %Зона видимости
 % rs>r0 (rs>2*rl0)
-alg_par.rtr=0.5; %Зона необходимого сближения с сеткой
 %rtr<(r0-rl0)/2
 %2rtr<sqrt(3)rl0
 alg_par.sr0=sqrt(3)*alg_par.rl0;
 alg_par.sr0y=alg_par.sr0*sqrt(3)/2;
 
 alg_par.Field=@(x,y,d)exp4_Field(x,y,d);
+alg_par.step=1;
 
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
-n=100;
+n=120;
 alg_par.ExpName=[alg_par.ExpName,'_n',int2str(n)];
+
 for i=1:n
     %randomize
     

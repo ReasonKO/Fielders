@@ -40,13 +40,13 @@ if isfield(exp1_data,'Setka_h');
 %    setPlotData(exp1_data.d_h3,robot.p(1)+robot.d(1),robot.p(2)+robot.d(2)); %главная вершина сетки
     setPlotData(exp1_data.p_h,X(in1),Y(in1)); %Узлы внутри поля
 
-    setPlotData(exp1_data.p_h2,X(in2),Y(in2));
+    %setPlotData(exp1_data.p_h2,X(in2),Y(in2));
     
 %    if alg_par.rule_step==2
  %   set(exp1_data.d_h6,'Visible','on');
  %   set(exp1_data.d_h7,'Visible','on');
     setPlotData(exp1_data.d_h6,robot.G.X(robot.G.oI)',robot.G.Y(robot.G.oI)');
-    setPlotData(exp1_data.d_h7,robot.Gc.x,robot.Gc.y);
+ %   setPlotData(exp1_data.d_h7,robot.Gc.x,robot.Gc.y);
   %  else
 %    set(exp1_data.d_h6,'Visible','off');
 %    set(exp1_data.d_h7,'Visible','off');
@@ -55,13 +55,13 @@ else
     figure(100)
 exp1_data.Setka_h=plot(M,N,'Y');%,'AlphaData',0.98);
 exp1_data.p_h=plot(X(in1),Y(in1),'Yo');
-exp1_data.p_h2=plot(X(in2),Y(in2),'Go');
+%exp1_data.p_h2=plot(X(in2),Y(in2),'Go');
 %exp1_data.d_h3=plot(robot.p(1)+robot.d(1),robot.p(2)+robot.d(2),'Ro','MarkerSize',5);
-exp1_data.d_h4=plot(robot.C(1),robot.C(2),'G*','MarkerSize',10);
+exp1_data.d_h4=plot(robot.C(1),robot.C(2),'Go','MarkerSize',9);
 exp1_data.d_h5=plot(robot.p(1)+Kc(:,1),robot.p(2)+Kc(:,2),'R-');
 
 exp1_data.d_h6=plot(robot.G.X(robot.G.oI)',robot.G.Y(robot.G.oI)','Ro','MarkerSize',13);
-exp1_data.d_h7=plot(robot.Gc.x,robot.Gc.y,'R*');
+%exp1_data.d_h7=plot(robot.Gc.x,robot.Gc.y,'R*');
 
 
 end

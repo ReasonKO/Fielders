@@ -55,9 +55,11 @@ else
     figure(100)
 exp1_data.Setka_h=plot(M,N,'Y');%,'AlphaData',0.98);
 exp1_data.p_h=plot(X(in1),Y(in1),'Yo');
-exp1_data.p_h2=plot(X(in2),Y(in2),'Go');
+
+%exp1_data.p_h2=plot(X(in2),Y(in2),'Go');
 %exp1_data.d_h3=plot(robot.p(1)+robot.d(1),robot.p(2)+robot.d(2),'Ro','MarkerSize',5);
 exp1_data.d_h4=plot(robot.C(1),robot.C(2),'G*','MarkerSize',10);
+
 exp1_data.d_h5=plot(robot.p(1)+Kc(:,1),robot.p(2)+Kc(:,2),'R-');
 
 exp1_data.d_h6=plot(robot.G.X(robot.G.oI)',robot.G.Y(robot.G.oI)','Ro','MarkerSize',13);

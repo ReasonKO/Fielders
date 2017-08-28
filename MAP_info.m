@@ -14,7 +14,7 @@ Modul.Minfo.Hb = uicontrol('Style', 'pushbutton', ...
      'Position', [285 20 120 60],...
     'String', 'STOP',...
     'FontSize',18,...
-    'Callback', @BtnPlotCallback);
+    'Callback', @BtnStopCallback);
 
 Modul.Minfo.Htime = uicontrol('Style', 'text', ...
      'Position', [150 20 120 30],...
@@ -31,9 +31,21 @@ Modul.Minfo.Hrun = uicontrol('Style', 'text', ...
     'BackgroundColor',[0,1,0],...
     'FontSize',21);
 
-function BtnPlotCallback(src,evt)
+function BtnStopCallback(src,evt)
 global Modul
 Modul.Stop=true;
 set(Modul.Minfo.Hrun,'String', 'STOP');
 Modul
 fprintf('\n-------GUI STOP------\n')
+set(Modul.Minfo.Hb,'Callback', @BtnStartCallback);
+set(Modul.Minfo.Hb,'String', 'Start');
+
+
+function BtnStartCallback(src,evt)
+global Modul
+Modul.Stop=false;
+Modul
+fprintf('\n-------____ START ____------\n')
+set(Modul.Minfo.Hb,'Callback', @BtnStopCallback);
+set(Modul.Minfo.Hb,'String', 'Stop');
+MODUL
