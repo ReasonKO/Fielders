@@ -23,6 +23,8 @@ alg_par.sr0y=alg_par.sr0*sqrt(3)/2;
 alg_par.Field=@(x,y,d)exp3_Field(x,y,d);
 alg_par.step=1;
 
+alg_par.addviz=0;
+
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
@@ -83,7 +85,7 @@ NeedSensors=sum(sum(Robots(n).G.I))
 pause(3)
 %% RUN
 global Modul
-Modul.T=0;
+Modul.T=double(0);
 Modul.Tend=300;
 Modul.dt=0.1;
 

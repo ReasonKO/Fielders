@@ -12,7 +12,7 @@ alg_par.ExpName='exp1';
 
 alg_par.r0=20; %Зона действия датчика
 alg_par.rl0=alg_par.r0-1; %Зона действия датчика
-alg_par.rtr=1; %Зона необходимого сближения с сеткой
+alg_par.rtr=2; %Зона необходимого сближения с сеткой
 alg_par.rc=round(alg_par.rl0*sqrt(3)+alg_par.rl0+2*alg_par.rtr+1); %Зона комуникации
 alg_par.rs=round(alg_par.rl0*sqrt(3)+alg_par.rl0+2*alg_par.rtr+1); %Зона видимости
 % rs>r0 (rs>2*rl0)
@@ -23,10 +23,13 @@ alg_par.sr0y=alg_par.sr0*sqrt(3)/2;
 
 alg_par.step=1;
 
+alg_par.addviz=false;
+
+
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
-n=100;
+n=50;
 alg_par.ExpName=[alg_par.ExpName,'_n',int2str(n)];
 
 for i=1:n
@@ -81,10 +84,10 @@ pause(3)
 %% RUN
 global Modul
 Modul.T=0;
-Modul.Tend=200;
-Modul.dt=0.1;
+Modul.Tend=10000;
+Modul.dt=1;
 
 Modul.SaveExp=1;
-Modul.save_freq=0.33; 
+Modul.save_freq=1; 
 
 MODUL

@@ -25,4 +25,6 @@ set(gca,'Color',[0.95 0.95 0.95]);
 MAP_DATA.Robots=struct('h',{});
 for i=1:length(Robots)
     MAP_DATA.Robots(i).h=plot3(NaN,NaN,0.1,'B.','MarkerSize',25);
+    MAP_DATA.Robots(i).text_N=0;
+    MAP_DATA.Robots(i).h_text_counter=text(0,0,'1','Visible','off','FontName','Franklin Gothic Medium Cond');    
 end

@@ -5,7 +5,6 @@ set(Modul.Minfo.Hrun,'String', 'RUN');
 
 
 while Modul.T<Modul.Tend && ~Modul.Stop
-    Modul.T=Modul.T+Modul.dt;
     if ceil(Modul.T)-ceil(Modul.T+Modul.dt)~=0
         if alg_par.step==1
             rule    
@@ -17,9 +16,12 @@ while Modul.T<Modul.Tend && ~Modul.Stop
         addVisual
         %iso_save_map(1);
     end 
+    MAP
+    iso_save_map
     dynamic
     MAP
     iso_save_map
+    Modul.T=Modul.T+Modul.dt;
 end
 iso_save_param
 iso_save_map(1);

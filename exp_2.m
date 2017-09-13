@@ -21,6 +21,7 @@ alg_par.rs=50; %Зона видимости
 alg_par.sr0=sqrt(3)*alg_par.rl0;
 alg_par.sr0y=alg_par.sr0*sqrt(3)/2;
 alg_par.step=1;
+alg_par.addviz=0;
 
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);

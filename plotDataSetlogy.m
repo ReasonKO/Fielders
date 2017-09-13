@@ -41,12 +41,12 @@ else
     if length(varData)==0
         h=semilogy(x,y);
     end
-%     if length(varData)==1
-%         h=plot(x,y,varData{1});
-%     end
-%     if length(varData)==2
-%         h=plot(x,y,varData{1},varData{2});
-%     end
+     if length(varData)==1
+         h=semilogy(x,y,varData{1});
+     end
+     if length(varData)==2
+         h=semilogy(x,y,varData{1},varData{2});
+     end
 %     if length(varData)==3
 %         h=plot(x,y,varData{1},varData{2},varData{3});
 %     end

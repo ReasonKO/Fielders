@@ -50,6 +50,7 @@ for i=1:n
     end
 end
 
+return 
 
 global alg_graph
 if ~ishandle(300) 
@@ -72,11 +73,17 @@ if ~ishandle(301)
     %axes('YScale','log')
     hold all        
 end
+sumln=0;
 for i=1:n-1
     ln=(sqrt((Robots(n).p(1)+Robots(n).d(1)-Robots(i).G.X).^2+(Robots(n).p(2)+Robots(n).d(2)-Robots(i).G.Y).^2));
+    sumln=sumln+min(min(ln));
     plotDataSetlogy(['LNtoD_',int2str(i)],min(min(ln)));
 end
+    plotDataSetlogy('LNtoD_sr',sumln/n,'LineWidth',4);
+%global plotData_data
+
 if ~ishandle(302) 
+%    set( plotData_data.LNtoD_sr','LineWidth',2);
     figure(302)
     %axes('YScale','log')
     hold all

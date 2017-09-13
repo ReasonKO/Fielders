@@ -2,10 +2,12 @@
 
 global Robots
 global alg_par
+global Modul
 
 alg_par.rule_step=2;
 n=length(Robots);
 
+mbySTOP=1;
 
 for i=1:n
         ln=sqrt((Robots(i).p(1)-Robots(i).G.X).^2+(Robots(i).p(2)-Robots(i).G.Y).^2);
@@ -27,7 +29,14 @@ for i=1:n
         if nG<=1
             Robots(i).C=Robots(i).p;
         else
+            mbySTOP=0;
             rnd=randi([1,nG],1,1);
             Robots(i).C=[tempX(rnd),tempY(rnd)];
         end
+end
+
+%mbySTOP
+
+if mbySTOP
+    Modul.Stop=1;
 end
