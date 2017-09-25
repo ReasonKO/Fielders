@@ -50,23 +50,25 @@ for i=1:n
     end
 end
 
-return 
 
 global alg_graph
 if ~ishandle(300) 
     figure(300)
     alg_graph.f300.s1=subplot(3,1,1);
+    hold on
     title('Theta');
     alg_graph.f300.s2=subplot(3,1,2);
+    hold on
     title('Di_x');
     alg_graph.f300.s3=subplot(3,1,3);
+    hold on
     title('Di_y');
     hold on
 
 end
 plotDataSet('Theta',Robots(n).theta,'Parent',alg_graph.f300.s1);
-plotDataSet('Di1',Robots(n).d(1)+Robots(n).p(1),'Parent',alg_graph.f300.s2);
-plotDataSet('Di2',Robots(n).d(2)+Robots(n).p(2),'Parent',alg_graph.f300.s3);
+plotDataSet('Di_x',Robots(n).d(1)+Robots(n).p(1),'Parent',alg_graph.f300.s2);
+plotDataSet('Di_y',Robots(n).d(2)+Robots(n).p(2),'Parent',alg_graph.f300.s3);
 
 if ~ishandle(301) 
     figure(301)

@@ -78,7 +78,7 @@ pause(3)
 global Modul
 Modul.T=0;
 Modul.Tend=300;
-Modul.dt=0.1;
+Modul.dt=1;
 
 Modul.SaveExp=1;
 Modul.save_freq=1; 
