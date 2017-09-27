@@ -26,7 +26,7 @@ alg_par.addviz=0;
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
-n=70;
+n=35;
 alg_par.ExpName=[alg_par.ExpName,'_n',int2str(n)];
 
 for i=1:n
@@ -77,10 +77,10 @@ pause(3)
 %% RUN
 global Modul
 Modul.T=0;
-Modul.Tend=300;
+Modul.Tend=30000;
 Modul.dt=1;
 
 Modul.SaveExp=1;
 Modul.save_freq=1; 
 
-MODUL
+MODUL2
