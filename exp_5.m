@@ -86,7 +86,7 @@ pause(3)
 %% RUN
 global Modul
 Modul.T=double(0);
-Modul.Tend=300;
+Modul.Tend=600;
 Modul.dt=0.5;
 
 Modul.SaveExp=1;

@@ -26,7 +26,7 @@ alg_par.addviz=0;
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
-n=35;
+n=60;
 alg_par.ExpName=[alg_par.ExpName,'_n',int2str(n)];
 
 for i=1:n

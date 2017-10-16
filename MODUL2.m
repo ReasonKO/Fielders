@@ -17,10 +17,15 @@ while Modul.T<Modul.Tend && ~Modul.Stop
         end
         alg_par.step=1-alg_par.step;
     end 
-
     dynamic
 
     Modul.T=Modul.T+Modul.dt;
+if Modul.Stop 
+    MAP2
+    addVisual
+    iso_save_map(1)
+end
+
 end
 iso_save_param
 iso_save_map(1);

@@ -94,5 +94,34 @@ for i=1:n-1
     plotDataSetlogy(['theta_',int2str(i)],Robots(i).theta);        
 end
 
+if ~ishandle(303) 
+%    set( plotData_data.LNtoD_sr','LineWidth',2);
+    figure(303)
+    plot(0,1,'W');
+    %axes('YScale','log')
+    hold all
+end
+
+[X,Y]=meshgrid(-100:1:100,-100:1:100);
+in=inField(X,Y,0);
+global lnctopouint
+lnctopouint_prev=lnctopouint;
+if isempty(lnctopouint_prev)
+lnctopouint_prev=zeros(size(in));
+end
+lnctopouint=zeros(size(in));
+for i=1:n
+    lnctopouint=lnctopouint|(sqrt((Robots(i).p(1)-X).^2+(Robots(i).p(2)-Y).^2)<alg_par.r0);    
+end
+lnctopouint=lnctopouint&in;
+a=sum(sum(in));
+b=sum(sum(lnctopouint));
+c=sum(sum(lnctopouint|lnctopouint_prev));
+%b/a
+% plot(X(~lnctopouint),Y(~lnctopouint),'R.');
+% plot(X(~in),Y(~in),'B.');
+% plot(X(lnctopouint),Y(lnctopouint),'Y.');
+plotDataSet('FIELDpercent',b/a,'linewidth',2);
+plotDataSet('FIELDpercent2',c/a,'linewidth',2);
 
 
