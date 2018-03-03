@@ -28,6 +28,9 @@ for MAP_i=1:length(Robots)
                 MAP_DATA.Robots(MAP_j).text_N=MAP_i;
             end
         end
+        
+  
+    
     end
     if count>1
         set(MAP_DATA.Robots(MAP_i).h_text_counter,'Visible','on');   
@@ -38,8 +41,17 @@ for MAP_i=1:length(Robots)
     end
 end
 
-
-%drawnow
+global exp1_data
+if ~isfield(exp1_data,'track')
+        exp1_data.track{n}=plot(Robots(n).p(1),Robots(n).p(2),'R-','Linewidth',1.5);
+          exp1_data.track{n-1}=plot(Robots(n-1).p(1),Robots(n-1).p(2),'G-','Linewidth',1.5);
+          exp1_data.track{n-2}=plot(Robots(n-2).p(1),Robots(n-2).p(2),'K-','Linewidth',1.5);
+else      
+         addPlotData(exp1_data.track{n},Robots(n).p(1),Robots(n).p(2)); %Узлы внутри поля
+         addPlotData(exp1_data.track{n-1},Robots(n-1).p(1),Robots(n-1).p(2)); %Узлы внутри поля
+         addPlotData(exp1_data.track{n-2},Robots(n-2).p(1),Robots(n-2).p(2)); %Узлы внутри поля
+end
+         %drawnow
 if isfield(Modul,'T')
     set(Modul.Minfo.Htime,'String',Modul.T);
 end

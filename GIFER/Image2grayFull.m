@@ -16,7 +16,7 @@ for i=1:n
         filename=files(i,:);
         [X, map] = imread([dir,filename],'png');
         fprintf('%d/%d %s\n',i,n,filename);
-        
+
         Y = rgb2gray(X);
         Y2=repmat(Y,[1,1,3]);
         imwrite(Y2,[dir,'gray\gray_',filename],'png');

@@ -29,7 +29,7 @@ alg_par.addviz=false;
 global Robots
 Robots=struct('Active',[],'p',[],'d',[],'theta',[]);
 
-n=50;
+n=70;
 alg_par.ExpName=[alg_par.ExpName,'_n',int2str(n)];
 
 for i=1:n
@@ -61,6 +61,8 @@ end
 
 MAP_INI
 set(MAP_DATA.Robots(n).h,'Color','R');
+set(MAP_DATA.Robots(n-1).h,'Color','G');
+set(MAP_DATA.Robots(n-2).h,'Color','K');
 %set(MAP_DATA.Robots(n).h,'zdata',3);
 
 [X,Y]=meshgrid(-100:1:100,-100:1:100);
@@ -85,9 +87,9 @@ pause(3)
 global Modul
 Modul.T=0;
 Modul.Tend=10000;
-Modul.dt=1;
+Modul.dt=0.25;
 
 Modul.SaveExp=1;
-Modul.save_freq=1; 
+Modul.save_freq=0.25; 
 
 MODUL

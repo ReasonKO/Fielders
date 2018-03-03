@@ -41,7 +41,14 @@ if ~isfield(exp1_data,'Setka_h');
     exp1_data.d_h6=plot(NaN,NaN,'Ro','MarkerSize',13);
     %exp1_data.d_h7=plot(robot.Gc.x,robot.Gc.y,'R*');
 
+%     
+%     exp1_data.track{n}=plot(Robots(n).p(1),Robots(n).p(2),'R-','Linewidth',1.5);
+%     exp1_data.track{n-1}=plot(Robots(n-1).p(1),Robots(n-1).p(2),'G-','Linewidth',1.5);
+%     exp1_data.track{n-2}=plot(Robots(n-2).p(1),Robots(n-2).p(2),'K-','Linewidth',1.5);
+%     
 end
+
+
     for i=1:length(exp1_data.Setka_h)
         setPlotData(exp1_data.Setka_h(i),setka_M(:,i),setka_N(:,i));
     end
@@ -53,4 +60,28 @@ end
     %setPlotData(exp1_data.d_h3,robot.p(1)+robot.d(1),robot.p(2)+robot.d(2)); %главная вершина сетки
     setPlotData(exp1_data.p_h,X(in1),Y(in1)); %Узлы внутри поля
     %setPlotData(exp1_data.p_h2,X(in2),Y(in2));    
+
+%   addPlotData(exp1_data.track{n},Robots(n).p(1),Robots(n).p(2)); %Узлы внутри поля
+%   addPlotData(exp1_data.track{n-1},Robots(n-1).p(1),Robots(n-1).p(2)); %Узлы внутри поля
+%   addPlotData(exp1_data.track{n-2},Robots(n-2).p(1),Robots(n-2).p(2)); %Узлы внутри поля
+global Robots_old
+if isempty(Robots_old)
+    Robots_old=Robots;
+end
+% [arrowx,arrowy] = dsxy2figxy(gca, [Robots_old(n).p(1),Robots(n).p(1)],...
+%     [Robots_old(n).p(2),Robots(n).p(2)]);
+% if max(max(arrowx),max(arrowy))<1 && min(min(arrowx),min(arrowy))>0
+% annotation('arrow',arrowx,arrowy,'Color','R');
+% else
+% plot(arrowx,arrowy,'Color','R');
+% end
+
+
+Robots_old=Robots;
+
+
+
+    
+    
+    
 
